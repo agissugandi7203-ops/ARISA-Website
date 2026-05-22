@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.gitignore
+.refact
+README.md
+info.md
+prompt.txt
+npm-debug.log
+.DS_Store

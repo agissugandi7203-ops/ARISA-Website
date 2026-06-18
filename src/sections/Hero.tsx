@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { heroConfig } from '../config';
@@ -11,7 +12,7 @@ const Hero = () => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLButtonElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null); // Changed ref from button to wrapper div
   const [isFirstVisit] = useState(() => {
     // Only show the big entrance animation on first page load ever
     if (sessionStorage.getItem('arisa-hero-seen')) return false;
@@ -155,17 +156,28 @@ const Hero = () => {
           {heroConfig.subtitle}
         </p>
 
-        {/* CTA Button */}
-        <button
+        {/* CTA Buttons */}
+        <div
           ref={ctaRef}
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-          }}
-          className="mt-12 px-8 py-4 bg-white text-black font-body text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+          className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center z-10"
         >
-          EXPLORE SYSTEM
-        </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            }}
+            className="px-8 py-4 bg-white text-black font-body text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] min-w-[200px]"
+          >
+            EXPLORE SYSTEM
+          </button>
+          
+          <Link
+            to="/hub?tab=downloads"
+            className="px-8 py-4 border-2 border-white text-white font-body text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 backdrop-blur-xs min-w-[200px] text-center"
+          >
+            DOWNLOAD DATA
+          </Link>
+        </div>
       </div>
 
       {/* Bottom gradient for seamless transition */}

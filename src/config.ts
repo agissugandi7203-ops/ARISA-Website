@@ -20,8 +20,8 @@ export interface HeroConfig {
 }
 
 export const heroConfig: HeroConfig = {
-  backgroundImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop",
-  backgroundAlt: "Pemandangan alam pegunungan berkabut yang megah",
+  backgroundImage: "/hero-home.webp",
+  backgroundAlt: "Lahan persawahan hijau asri tempat penelitian agronomi ARISA dijalankan",
   title: "ARISA",
   subtitle: "PRECISION AGRONOMY INTELLIGENCE",
 };
@@ -65,7 +65,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "Pemantauan Berkelanjutan",
       subtitle: "EDGE-AI SYSTEM",
       description: "Seluruh pemrosesan AI berjalan langsung di perangkat Raspberry Pi tanpa koneksi internet. Kondisi daun padi dipindai dan dianalisis secara real-time di lokasi lahan.",
-      image: "/grid-1.webp",
+      image: "/science/rpi-field.webp",
       imageAlt: "Sistem Edge-AI di lahan pertanian",
       reverse: false,
     },
@@ -74,7 +74,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "Analisis Presisi",
       subtitle: "DEEP LEARNING",
       description: "Model U-Net dan EfficientNet mengidentifikasi area daun yang sehat dan terinfeksi hingga tingkat piksel. Deteksi dini membantu mencegah penurunan hasil panen.",
-      image: "/grid-2.webp",
+      image: "/science/ai-segmentation.webp",
       imageAlt: "Pemrosesan citra digital tanaman padi",
       reverse: true,
     },
@@ -83,7 +83,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "Indeks Risiko Agronomi",
       subtitle: "SCIENTIFIC INTEGRATION",
       description: "Hasil segmentasi citra diolah menjadi Disease Severity Index (DSI), sebuah skor kuantitatif yang membantu petani memahami tingkat keparahan penyakit tanaman.",
-      image: "/grid-3.webp",
+      image: "/science/leaf-mild.webp",
       imageAlt: "Visualisasi data indeks risiko agronomi",
       reverse: false,
     },
@@ -92,7 +92,7 @@ export const zigZagGridConfig: ZigZagGridConfig = {
       title: "Akses untuk Semua",
       subtitle: "INCLUSIVE TECHNOLOGY",
       description: "Informasi teknis diterjemahkan ke dalam indikator warna sederhana (Hijau/Kuning/Merah) yang mudah dipahami oleh petani tanpa latar belakang teknologi.",
-      image: "/grid-4.webp",
+      image: "/science/farmer-testing.webp",
       imageAlt: "Antarmuka sederhana untuk petani",
       reverse: true,
     },
@@ -137,21 +137,21 @@ export const cardStackConfig: CardStackConfig = {
   cards: [
     {
       id: 1,
-      image: "/card-1.webp",
+      image: "/craft-hardware.webp",
       title: "Perangkat Tangguh",
       description: "Casing IP65 tahan air dan debu melindungi unit komputasi di kondisi lapangan. Sistem pendingin aktif menjaga suhu operasi tetap stabil sepanjang hari.",
       rotation: -2,
     },
     {
       id: 2,
-      image: "/card-2.webp",
+      image: "/craft-algorithm.webp",
       title: "Kecerdasan Mandiri",
       description: "Model deep learning dilatih untuk mengenali pola penyakit dan kondisi agronomis pada daun padi dengan tingkat akurasi yang konsisten dan terukur.",
       rotation: 1,
     },
     {
       id: 3,
-      image: "/card-3.webp",
+      image: "/craft-vision.webp",
       title: "Antarmuka Sederhana",
       description: "Hasil analisis AI ditampilkan dalam format visual yang mudah dipahami. Petani mendapat rekomendasi tindakan langsung tanpa perlu memahami teknologi di baliknya.",
       rotation: -1,
@@ -230,3 +230,45 @@ export const footerConfig: FooterConfig = {
   schoolName: "SMK Marhas Margahayu",
   tagline: "Precision Agronomy Intelligence",
 };
+
+// GCS Buckets & Downloads Configuration
+export interface GCSConfig {
+  bucketName: string;
+  baseUrl: string;
+  datasets: {
+    agroGuard19k: string;
+    stageEnriched: string;
+    segmentation: string;
+    rawSegmentation: string;
+  };
+  models: {
+    unet: string;
+    stageClassifier: string;
+    diseaseClassifier: string;
+  };
+  releases: {
+    apk: string;
+    sourceZip: string;
+  };
+}
+
+export const gcsConfig: GCSConfig = {
+  bucketName: "arisa-opsi-bucket-2026",
+  baseUrl: "https://storage.googleapis.com/arisa-opsi-bucket-2026",
+  datasets: {
+    agroGuard19k: "https://storage.googleapis.com/arisa-opsi-bucket-2026/dataset/AgroGuard-19K-Dataset.zip",
+    stageEnriched: "https://storage.googleapis.com/arisa-opsi-bucket-2026/dataset/DataSet-Vegetasi-Enriched.zip",
+    segmentation: "https://storage.googleapis.com/arisa-opsi-bucket-2026/dataset/arisa_segmentation_dataset.zip",
+    rawSegmentation: "https://storage.googleapis.com/arisa-opsi-bucket-2026/dataset/RiceLeafDisease-Dataset.zip",
+  },
+  models: {
+    unet: "https://storage.googleapis.com/arisa-opsi-bucket-2026/models-raw/arisa_unet_best.h5",
+    stageClassifier: "https://storage.googleapis.com/arisa-opsi-bucket-2026/models-raw/arisa_classifier_best.h5",
+    diseaseClassifier: "https://storage.googleapis.com/arisa-opsi-bucket-2026/models-raw/arisa_disease_best.h5",
+  },
+  releases: {
+    apk: "https://storage.googleapis.com/arisa-opsi-bucket-2026/releases/ARISA-Mobile-Client.apk",
+    sourceZip: "https://storage.googleapis.com/arisa-opsi-bucket-2026/releases/mobile_app.zip",
+  },
+};
+

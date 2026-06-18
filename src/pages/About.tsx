@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     name: "Arief Fajar",
     role: "Lead Researcher & AI Developer",
     subtitle: "Kelas 11 - Rekayasa Perangkat Lunak",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop",
+    image: "/assets/team/arief.webp",
     details: [
       "Pengembangan model AI (U-Net, EfficientNet)",
       "Arsitektur sistem Edge-AI",
@@ -46,7 +46,7 @@ const teamMembers: TeamMember[] = [
     name: "Reza Arrofi",
     role: "Hardware Engineer & Field Tester",
     subtitle: "Anggota Tim ARISA-CHAN",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2000&auto=format&fit=crop",
+    image: "/assets/team/reza.webp",
     details: [
       "Perakitan perangkat keras ARISA",
       "Pengujian lapangan di sawah mitra",
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Muhammad Taufiq Azhari",
     role: "Pembimbing Penelitian",
     subtitle: "Guru - SMK Marhas Margahayu",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2000&auto=format&fit=crop",
+    image: "/assets/team/taufiq.webp",
     details: [
       "Supervisi metodologi penelitian",
       "Bimbingan teknis & akademis",

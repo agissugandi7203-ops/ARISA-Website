@@ -14,6 +14,7 @@ const navLinks: NavLink[] = [
   { label: 'Research Base', href: '/research' },
   { label: 'Methodology', href: '/methodology' },
   { label: 'Field Test', href: '/field-test' },
+  { label: 'ARISA Hub', href: '/hub' },
   { label: 'About Us', href: '/about' },
 ];
 
@@ -58,7 +59,7 @@ const Navbar = () => {
   // Handle resize to close mobile menu when switching to desktop view
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+      if (window.innerWidth >= 1024 && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -95,12 +96,12 @@ const Navbar = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className={`pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between w-full ${
             isScrolled
-              ? 'mt-4 max-w-6xl py-3 px-8 navbar-glass rounded-full border shadow-soft'
-              : 'mt-0 max-w-7xl py-6 px-4 bg-transparent border-transparent shadow-none'
+              ? 'mt-4 max-w-[92vw] xl:max-w-[1360px] py-3 px-8 navbar-glass rounded-full border shadow-soft'
+              : 'mt-0 max-w-[95vw] xl:max-w-[1440px] py-6 px-4 bg-transparent border-transparent shadow-none'
           }`}
         >
           {/* 1. Left: Logo */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-none lg:w-48">
             <Link
               to="/"
               className="group relative flex items-center gap-2.5 w-max"
@@ -117,14 +118,14 @@ const Navbar = () => {
           </div>
 
           {/* 2. Middle: Centered Navigation */}
-          <div className="hidden md:flex flex-none items-center justify-center gap-6 lg:gap-8">
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
               return (
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`relative py-2 font-body text-[0.7rem] lg:text-[0.75rem] uppercase tracking-[0.2em] transition-all duration-500 group whitespace-nowrap ${
+                  className={`relative py-2 font-body text-xs xl:text-sm uppercase tracking-[0.2em] transition-all duration-500 group whitespace-nowrap ${
                     isActive
                       ? `${textColorClass} font-medium`
                       : `${textColorClass} opacity-70 ${hoverColorClass} hover:opacity-100`
@@ -135,7 +136,7 @@ const Navbar = () => {
                   {/* Indicator for active or hover */}
                   <span
                     className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1px] transition-all duration-500 bg-primary ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-1/2'
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
                   />
                 </Link>
@@ -144,7 +145,7 @@ const Navbar = () => {
           </div>
 
           {/* 3. Right: CTA Button & Theme Toggle */}
-          <div className="hidden md:flex flex-1 min-w-0 justify-end items-center gap-4">
+          <div className="hidden lg:flex flex-none lg:w-48 justify-end items-center gap-4">
             
             {/* Theme Switcher Button */}
             {mounted && (
@@ -163,14 +164,14 @@ const Navbar = () => {
 
             <Link
               to="/contact"
-              className="whitespace-nowrap flex-shrink-0 px-6 py-2.5 rounded-full font-body text-[0.7rem] uppercase tracking-[0.2em] transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5 border border-primary/20 text-foreground hover:bg-primary hover:text-primary-foreground"
+              className="whitespace-nowrap flex-shrink-0 px-6 py-2.5 rounded-full font-body text-xs xl:text-sm uppercase tracking-[0.2em] transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5 border border-primary/20 text-foreground hover:bg-primary hover:text-primary-foreground"
             >
               Get in Touch
             </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
-          <div className="md:hidden flex-1 flex justify-end gap-3 items-center">
+          <div className="lg:hidden flex-1 flex justify-end gap-3 items-center">
              {/* Mobile Theme Switcher */}
              {mounted && (
               <button
@@ -254,7 +255,7 @@ const Navbar = () => {
               >
                 <Link
                   to="/contact"
-                  className="px-8 py-3 rounded-full border border-primary/20 font-body text-[0.8rem] uppercase tracking-[0.2em] text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+                  className="px-8 py-3 rounded-full border border-primary/20 font-body text-sm uppercase tracking-[0.2em] text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Start Collaborating

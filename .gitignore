@@ -29,3 +29,6 @@ Thumbs.db
 
 # Railway
 .railway
+
+# Agent / Tooling Configuration
+.refact/

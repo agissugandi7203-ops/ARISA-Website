@@ -8,6 +8,21 @@
     <meta name="author" content="Tim Peneliti SMK Marhas Margahayu" />
     <meta name="theme-color" content="#EAE4D9" />
     
+    <script>
+      (function() {
+        if (!localStorage.getItem('arisa-theme-forced-dark-v2')) {
+          localStorage.setItem('theme', 'dark');
+          localStorage.setItem('arisa-theme-forced-dark-v2', 'true');
+        }
+        const theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="ARISA — Precision Agronomy Intelligence" />

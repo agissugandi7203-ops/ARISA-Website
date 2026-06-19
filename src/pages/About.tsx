@@ -1,13 +1,9 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { School, MapPin, GraduationCap, Mail, Phone } from 'lucide-react';
 import SDGSection from '../sections/SDGSection';
 import FAQ from '../sections/FAQ';
 import FutureWork from '../sections/FutureWork';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const pageVariants = {
   hidden: { opacity: 0 },

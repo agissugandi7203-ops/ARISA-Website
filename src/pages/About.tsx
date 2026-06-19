@@ -70,23 +70,6 @@ const teamMembers: TeamMember[] = [
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const parallaxRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (parallaxRef.current) {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          animation: gsap.to(parallaxRef.current, { y: 150, ease: 'none' }),
-        });
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <motion.div
@@ -95,26 +78,32 @@ const About = () => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="bg-background text-foreground overflow-x-hidden"
+      className="bg-background text-foreground overflow-x-hidden relative"
     >
       {/* Hero */}
-      <section className="relative h-[70vh] md:h-[80vh] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
-          <img
-            ref={parallaxRef}
-            src="/science/farmer-testing.webp"
-            alt="Tim ARISA di lapangan"
+      <section className="relative h-screen overflow-hidden flex items-center justify-center z-10">
+        {/* Video Background (absolute, z-0) */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden scale-[1.08] origin-center pointer-events-none">
+          <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260510_060007_60275ce7-030c-4668-a160-8f364ec537d3.mp4"
             className="w-full h-full object-cover"
-            loading="eager"
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadedMetadata={(e) => {
+              e.currentTarget.playbackRate = 1.25;
+            }}
           />
-          <div className="absolute inset-0 bg-black/60 z-[1] pointer-events-none" />
+          <div className="absolute inset-0 bg-black/60 z-[1]" />
         </div>
-        <div className="relative z-10 text-center px-6">
+
+        <div className="relative z-10 text-center px-6 flex flex-col items-center justify-center">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-white/50 text-xs uppercase tracking-[0.3em] mb-4 block"
+            className="font-body text-white/50 text-xs sm:text-sm uppercase tracking-[0.3em] mb-4 block"
           >
             Tim Peneliti
           </motion.span>

@@ -148,16 +148,30 @@ const Journey = () => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="bg-background text-foreground min-h-screen overflow-x-hidden"
+      className="bg-background text-foreground min-h-screen overflow-x-hidden relative"
     >
-      <div className="h-[80vh] md:h-screen flex flex-col items-center justify-center px-6 text-center">
-        <span className="font-body text-foreground/70 uppercase tracking-[0.3em] text-[10px] mb-4 block">Uji Lapangan</span>
-        <h1 className="font-display text-[16vw] md:text-[14vw] leading-none mb-6 tracking-tighter">
-          Eksplorasi Nyata
-        </h1>
-        <p className="font-prose text-foreground/70 max-w-xl text-sm md:text-lg leading-[1.85] italic">
-          Laboratorium kami adalah realitas. Sistem ARISA menjelajahi variabilitas ekosistem padi untuk memastikan AI mampu beradaptasi pada segala skenario operasional.
-        </p>
+      {/* Hero */}
+      <div className="relative h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+        <video
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_131941_d136af49-e243-493a-be14-6ff3f24e09e6.mp4"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/60 z-[1] pointer-events-none" />
+        <div className="relative z-10 flex flex-col items-center justify-center text-white">
+          <span className="font-body text-white/50 text-xs sm:text-sm uppercase tracking-[0.3em] mb-4 block">
+            Uji Lapangan
+          </span>
+          <h1 className="font-display text-white text-5xl md:text-8xl leading-none tracking-tighter">
+            Eksplorasi Nyata
+          </h1>
+          <p className="font-prose text-white/80 max-w-xl mx-auto text-sm md:text-base leading-relaxed mt-6 italic">
+            Laboratorium kami adalah realitas. Sistem ARISA menjelajahi variabilitas ekosistem padi untuk memastikan AI mampu beradaptasi pada segala skenario operasional.
+          </p>
+        </div>
       </div>
 
       <section className="py-24 md:py-48 px-6 bg-background">
@@ -258,7 +272,7 @@ const Journey = () => {
         </h2>
         <div className="max-w-xl mx-auto text-center space-y-8 relative z-10">
           <h3 className="font-display text-4xl md:text-8xl tracking-tighter">Berkolaborasi?</h3>
-          <p className="font-prose text-base md:text-lg text-foreground/70 leading-[1.85] italic">Bergabunglah dalam revolusi komputasi tepi dalam dunia agrikultur bersama kami.</p>
+          <p className="font-prose text-base md:text-lg text-foreground/70 leading-[1.85] italic">Bergabunglah dalam revolusi Komputasi Edge-AI untuk masa depan agrikultur presisi.</p>
           <a href="/contact" className="inline-block px-10 py-5 border border-foreground/20 rounded-full hover:bg-foreground hover:text-background transition-all duration-500 font-display text-lg tracking-tight">
               Hubungi Peneliti
           </a>

@@ -23,7 +23,6 @@ const pageVariants = {
 
 const Story = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const parallaxRef = useRef<HTMLImageElement>(null);
   const textRevealRef = useRef<HTMLDivElement>(null);
   const pinSectionRef = useRef<HTMLDivElement>(null);
   const imageScaleRef = useRef<HTMLDivElement>(null);
@@ -33,16 +32,6 @@ const Story = () => {
   
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // 1. Hero Parallax Effect
-      if (parallaxRef.current) {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          animation: gsap.to(parallaxRef.current, { y: 150, ease: 'none' })
-        });
-      }
 
       // 2. Slow Text Reveal (Word by Word)
       if (textRevealRef.current) {
@@ -136,28 +125,33 @@ const Story = () => {
       className="bg-background text-foreground pt-0 overflow-x-hidden"
     >
       {/* Hero Section */}
-      <section className="relative h-[80vh] md:h-screen overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
-          <img 
-            ref={parallaxRef}
-            src="/hero-research.webp" 
-            alt="Daun padi close-up" 
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-        </div>
+      <section className="relative h-screen overflow-hidden flex items-center justify-center">
+        <video
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none" />
         
-        <div className="relative z-10 text-center px-6">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center p-4 sm:p-6 md:p-8">
+          <span className="font-body text-white/50 text-xs sm:text-sm uppercase tracking-[0.3em] mb-4 block">
+            Landasan Riset
+          </span>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="font-display text-white text-[18vw] md:text-[12vw] leading-none mb-4 tracking-tighter"
+            className="font-display text-white text-5xl md:text-8xl leading-none tracking-tighter"
             style={{ textShadow: '0 5px 20px rgba(0,0,0,0.5)' }}
           >
             Latar Belakang
           </motion.h1>
+          <p className="font-prose text-white/80 max-w-xl mx-auto text-sm md:text-base leading-relaxed mt-6 italic">
+            ARISA dirancang untuk menjembatani kesenjangan antara pemantauan pertanian konvensional dan kebutuhan pertanian presisi di era modern.
+          </p>
         </div>
       </section>
 

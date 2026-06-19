@@ -95,21 +95,24 @@ export default function SplineSection() {
         </div>
       )}
 
-      {/* Mobile fallback - elegant geometric visual */}
+      {/* Mobile fallback - elegant device visual */}
       {isMobile && (
-        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
-          <div className="relative w-52 h-52">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-kaleo-terracotta/15 to-transparent" 
-              style={{ animation: 'pulse 4s ease-in-out infinite' }} />
-            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-foreground/5 to-transparent" />
-            <div className="absolute inset-10 rounded-full border border-foreground/10" />
-            <div className="absolute inset-14 rounded-full border border-kaleo-terracotta/15" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 60 60" className="w-24 h-24 text-kaleo-terracotta drop-shadow-lg">
-                <path d="M30 5 L55 50 L5 50 Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                <path d="M30 20 L45 45 L15 45 Z" fill="none" stroke="currentColor" strokeWidth="1" strokeLinejoin="round"/>
-                <circle cx="30" cy="35" r="5" fill="currentColor"/>
-              </svg>
+        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center p-8">
+          <div className="relative w-72 max-w-[80vw] aspect-square rounded-3xl overflow-hidden border border-foreground/10 bg-stone-900/10 shadow-2xl flex items-center justify-center">
+            <img 
+              src="/craft-hardware.webp" 
+              alt="ARISA Edge Hardware Device"
+              className="w-full h-full object-cover filter brightness-95 contrast-105 rounded-3xl"
+            />
+            {/* Ambient vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 right-6 text-left">
+              <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-kaleo-terracotta block">
+                Edge Hardware
+              </span>
+              <span className="text-base font-display text-white font-normal mt-0.5 block">
+                ARISA Edge Unit
+              </span>
             </div>
           </div>
         </div>

@@ -128,24 +128,43 @@ const Craft = () => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="bg-background text-foreground overflow-x-hidden"
+      className="bg-background text-foreground overflow-x-hidden relative"
     >
-      <div className="pt-32 pb-16 md:pb-20 px-6 max-w-5xl mx-auto text-center min-h-[50vh] flex flex-col justify-center">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-display text-[16vw] md:text-[8vw] leading-none mb-6 tracking-tighter"
-        >
-          Metodologi
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="font-prose text-foreground/70 max-w-xl mx-auto text-base md:text-lg leading-[1.85] italic"
-        >
-          Sebuah dedikasi pada presisi ilmiah. ARISA meramu rekayasa komputasi mutakhir dengan pendekatan agronomis yang sangat dihormati.
-        </motion.p>
-      </div>
+      {/* Hero */}
+      <section className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+        {/* Background Video (absolute, z-0) */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="absolute inset-0 bg-black/65 z-[1]" />
+        </div>
+
+        <div className="relative z-10 px-6 max-w-5xl mx-auto text-center flex flex-col justify-center items-center text-white">
+          <span className="font-body text-white/50 text-xs sm:text-sm uppercase tracking-[0.3em] mb-4 block">
+            Metodologi
+          </span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-display text-white text-5xl md:text-8xl leading-none tracking-tighter"
+          >
+            Metodologi
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="font-prose text-white/80 max-w-xl mx-auto text-sm md:text-base leading-relaxed mt-6 italic"
+          >
+            Sebuah dedikasi pada presisi ilmiah. ARISA meramu rekayasa komputasi mutakhir dengan pendekatan agronomis yang sangat dihormati.
+          </motion.p>
+        </div>
+      </section>
 
       {/* Stacked Panels */}
       <div className="relative w-full">

@@ -17,7 +17,7 @@ import Craft from './pages/Craft';
 import Journey from './pages/Journey';
 import Contact from './pages/Contact';
 import About from './pages/About';
-import Hub from './pages/Hub';
+import Docs from './pages/Docs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,7 +55,7 @@ function AppContent() {
             <Route path="/field-test" element={<Journey />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/hub" element={<Hub />} />
+            <Route path="/docs" element={<Docs />} />
           </Routes>
         </AnimatePresence>
       </main>

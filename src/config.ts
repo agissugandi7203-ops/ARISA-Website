@@ -8,12 +8,13 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   language: "id",
   siteName: "ARISA",
-  siteDescription: "Sistem kecerdasan buatan komputasi tepi untuk pemantauan agronomi presisi",
+  siteDescription: "Sistem kecerdasan buatan Edge-AI untuk pemantauan agronomi presisi",
 };
 
 // Hero Section
 export interface HeroConfig {
   backgroundImage: string;
+  backgroundVideo?: string;
   backgroundAlt: string;
   title: string;
   subtitle: string;
@@ -21,6 +22,7 @@ export interface HeroConfig {
 
 export const heroConfig: HeroConfig = {
   backgroundImage: "/hero-home.webp",
+  backgroundVideo: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260611_183632_c311af08-e4b7-458f-81e7-79847a49b3d3.mp4",
   backgroundAlt: "Lahan persawahan hijau asri tempat penelitian agronomi ARISA dijalankan",
   title: "ARISA",
   subtitle: "PRECISION AGRONOMY INTELLIGENCE",
@@ -34,7 +36,7 @@ export interface NarrativeTextConfig {
 }
 
 export const narrativeTextConfig: NarrativeTextConfig = {
-  line1: "Teknologi komputasi tepi",
+  line1: "Teknologi Komputasi Edge-AI",
   line2: "untuk pemantauan tanaman yang lebih cerdas.",
   line3: "EDGE COMPUTING. PRECISION DETECTION. SUSTAINABLE AGRONOMY.",
 };
@@ -113,7 +115,7 @@ export const breathSectionConfig: BreathSectionConfig = {
   backgroundAlt: "Panorama persawahan dan pegunungan",
   title: "Harmoni",
   subtitle: "NATURE & TECHNOLOGY",
-  description: "ARISA menggabungkan teknologi komputasi tepi dengan ilmu agronomi untuk mendukung pemantauan tanaman yang lebih akurat, efisien, dan dapat diakses langsung oleh petani di lapangan.",
+  description: "ARISA menggabungkan teknologi Komputasi Edge-AI dengan ilmu agronomi untuk mendukung pemantauan tanaman yang lebih akurat, efisien, dan dapat diakses langsung oleh petani di lapangan.",
 };
 
 // Card Stack Section

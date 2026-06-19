@@ -103,24 +103,35 @@ const Hero = () => {
     return () => ctx.revert();
   }, [isFirstVisit]);
 
-  if (!heroConfig.title && !heroConfig.backgroundImage) return null;
+  if (!heroConfig.title && !heroConfig.backgroundImage && !heroConfig.backgroundVideo) return null;
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full h-screen min-h-[100vh] overflow-hidden"
     >
-      {/* Background Image */}
+      {/* Background Image/Video */}
       <div
         ref={imageRef}
         className="absolute inset-0 w-full h-full"
       >
-        <img
-          src={heroConfig.backgroundImage}
-          alt={heroConfig.backgroundAlt}
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
+        {heroConfig.backgroundVideo ? (
+          <video
+            src={heroConfig.backgroundVideo}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img
+            src={heroConfig.backgroundImage}
+            alt={heroConfig.backgroundAlt}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        )}
       </div>
 
       {/* Gradient overlay for depth - starts at 0.5 for immediate contrast */}
@@ -172,7 +183,7 @@ const Hero = () => {
           </button>
           
           <Link
-            to="/hub?tab=downloads"
+            to="/docs?sec=downloads"
             className="px-8 py-4 border-2 border-white text-white font-body text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 backdrop-blur-xs min-w-[200px] text-center"
           >
             DOWNLOAD DATA
